@@ -13,7 +13,7 @@ data "cloudinit_config" "cgw" {
   part {
     filename     = "02-cloud-config.yaml"
     content_type = "text/cloud-config"
-    content      = <<-EOT
+    content = <<-EOT
       #cloud-config
       write_files:
         - path: /etc/ipsec.d/aws-updown.sh
@@ -25,17 +25,19 @@ data "cloudinit_config" "cgw" {
           permissions: '0400'
           owner: root:root
           encoding: b64
-          content: ${base64encode(file("${path.module}/vpn-config.xml"))}
+          content: ${base64encode(nonsensitive(
+    aws_vpn_connection.vpn.customer_gateway_configuration
+))}
     EOT
-  }
+}
 
 
-  part {
-    filename     = "04-configure-vpn-tunnels.sh"
-    content_type = "text/x-shellscript"
-    content = templatefile("${path.module}/scripts/04-configure-vpn-tunnels.sh", {
-      cidr_aws    = local.sites.aws.cidr
-      cidr_onprem = local.sites.onprem.cidr
-    })
-  }
+part {
+  filename     = "04-configure-vpn-tunnels.sh"
+  content_type = "text/x-shellscript"
+  content = templatefile("${path.module}/scripts/04-configure-vpn-tunnels.sh", {
+    cidr_aws    = local.sites.aws.cidr
+    cidr_onprem = local.sites.onprem.cidr
+  })
+}
 }
