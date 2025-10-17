@@ -7,6 +7,10 @@ resource "aws_vpn_connection" "vpn" {
   tags = {
     Name = local._deployment
   }
+  # important - VPN connection won't work othw
+  depends_on = [
+    aws_vpn_gateway.vgw
+  ]
 }
 
 resource "aws_vpn_connection_route" "aws_to_onprem" {
