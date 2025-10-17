@@ -1,9 +1,9 @@
 resource "aws_vpn_connection" "vpn" {
-  customer_gateway_id      = aws_customer_gateway.onprem.id
-  local_ipv4_network_cidr  = local.sites.aws.cidr
-  remote_ipv4_network_cidr = local.sites.onprem.cidr
-  static_routes_only       = true
-  type                     = "ipsec.1"
+  customer_gateway_id = aws_customer_gateway.onprem.id
+  # local_ipv4_network_cidr  = local.sites.aws.cidr
+  # remote_ipv4_network_cidr = local.sites.onprem.cidr
+  static_routes_only = true
+  type               = "ipsec.1"
   tags = {
     Name = local._deployment
   }
