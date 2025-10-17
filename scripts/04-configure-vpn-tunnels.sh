@@ -110,5 +110,8 @@ $cgw_outside_ip $vgw_outside_ip_2 : PSK "$psk_2"
 EOF
 
 ipsec restart
+# sleep 10
+# ip down Tunnel1
+# ip up Tunnel1
 
 echo "END ---- 04-configure-vpn-tunnels.sh"
