@@ -52,7 +52,7 @@ conn Tunnel1
     ike=aes256gcm16-sha384-ecp384!
     esp=aes256gcm16-sha384-ecp384!
     keyingtries=%forever
-    nat_traversal=yes
+    # nat_traversal=yes
 
     ## Please note the following line assumes you only have two tunnels
     ## in your Strongswan configuration file. This "mark" value must be
@@ -89,7 +89,7 @@ conn Tunnel2
     ike=aes256gcm16-sha384-ecp384!
     esp=aes256gcm16-sha384-ecp384!
     keyingtries=%forever
-    nat_traversal=yes
+    # nat_traversal=yes
 
     ## Please note the following line assumes you only have two tunnels
     ## in your Strongswan configuration file. This "mark" value must be
@@ -111,7 +111,7 @@ $cgw_outside_ip $vgw_outside_ip_1 : PSK "$psk_1"
 $cgw_outside_ip $vgw_outside_ip_2 : PSK "$psk_2"
 EOF
 
-# ipsec restart
+ipsec restart
 # sleep 10
 # ipsec down Tunnel1
 # ipsec up Tunnel1
