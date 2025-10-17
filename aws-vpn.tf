@@ -4,13 +4,10 @@ resource "aws_vpn_connection" "vpn" {
   # remote_ipv4_network_cidr = local.sites.onprem.cidr
   static_routes_only = true
   type               = "ipsec.1"
+  vpn_gateway_id     = aws_vpn_gateway.vgw.id
   tags = {
     Name = local._deployment
   }
-  # important - VPN connection won't work othw
-  depends_on = [
-    aws_vpn_gateway.vgw
-  ]
 }
 
 resource "aws_vpn_connection_route" "aws_to_onprem" {
