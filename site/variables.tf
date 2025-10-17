@@ -1,4 +1,4 @@
-variable "deployment" {
+variable "name_tag" {
   type = any
 }
 

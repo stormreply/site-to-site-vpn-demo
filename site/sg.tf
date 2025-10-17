@@ -1,6 +1,6 @@
 resource "aws_security_group" "this" {
   region = var.site.region
-  name   = "${var.deployment.name}-${var.site.name}"
+  name   = "${var.name_tag}-${var.site.name}"
   vpc_id = aws_vpc.this.id
 
   # ingress {
@@ -25,6 +25,6 @@ resource "aws_security_group" "this" {
   }
 
   tags = {
-    Name = "${var.deployment.name}-${var.site.name}"
+    Name = "${var.name_tag}-${var.site.name}"
   }
 }

@@ -4,7 +4,7 @@ resource "aws_vpn_connection" "vpn" {
   type                = "ipsec.1"
   static_routes_only  = true
   tags = {
-    Name = local.deployment.name
+    Name = local._deployment
   }
 }
 

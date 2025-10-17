@@ -5,6 +5,6 @@ resource "aws_subnet" "this" {
   map_public_ip_on_launch = true
   availability_zone       = "${var.site.region}a"
   tags = {
-    Name = "${var.deployment.name}-${var.site.name}-public"
+    Name = "${var.name_tag}-${var.site.name}-public"
   }
 }
