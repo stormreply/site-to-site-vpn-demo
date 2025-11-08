@@ -6,7 +6,7 @@ resource "aws_vpn_connection" "vpn" {
   type               = "ipsec.1"
   vpn_gateway_id     = aws_vpn_gateway.vgw.id
   tags = {
-    Name = local._deployment
+    Name = local._name_tag
   }
 }
 

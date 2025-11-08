@@ -40,7 +40,7 @@ variable "_metadata" {
 }
 
 output "_deployment" {
-  value = local._deployment
+  value = local._name_tag
 
 }
 

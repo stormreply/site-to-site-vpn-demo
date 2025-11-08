@@ -3,7 +3,7 @@ resource "aws_eip" "onprem" {
   domain     = "vpc"
   depends_on = [module.site.onprem] # cf. aws_eip doc
   tags = {
-    Name = "${local._deployment}-cgw"
+    Name = "${local._name_tag}-cgw"
   }
 }
 

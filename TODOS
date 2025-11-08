@@ -1,3 +1,0 @@
-TODO:
-
-add waiter on CGW for vgw telemetry; both tunnels up, then exec ipsec down Tunnel1 ; ipsec up Tunnel1

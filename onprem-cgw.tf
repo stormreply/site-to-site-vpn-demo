@@ -3,7 +3,7 @@ module "cgw" {
   region                 = local.sites["onprem"].region
   providers              = { aws = aws.cgw-instance }
   ami                    = data.aws_ami.latest_ubuntu_linux_ami.id
-  instance_name          = "${local._deployment}-cgw"
+  instance_name          = "${local._name_tag}-cgw"
   instance_type          = "m6i.xlarge"
   policies               = [data.aws_iam_policy.amazon_ssm_managed_instance_core.arn]
   source_dest_check      = false
