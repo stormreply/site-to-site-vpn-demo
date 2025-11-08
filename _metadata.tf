@@ -1,31 +1,48 @@
 locals {
-
-  _default_tags = merge(
-
-    {
-      for key, value in var._metadata :
-      "deployment-${replace(key, "_", "-")}" => value
-      if value != "" && !contains(["catalog_id", "deployment", "short_name"], key)
-    },
-
-    var._metadata.ref_name != ""
-    ? { deployment-code = "https://github.com/${var._metadata.repository}/tree/${var._metadata.ref_name}" }
-    : {},
-
-    var._metadata.sha != ""
-    ? { deployment-commit = "https://github.com/${var._metadata.repository}/commit/${var._metadata.sha}" }
-    : {},
-
-    var._metadata.deployment != ""
-    ? { deployment-name = var._metadata.deployment }
-    : {},
-
-    var._metadata.repository != ""
-    ? { deployment-repository = var._metadata.repository != "" ? "https://github.com/${var._metadata.repository}" : "" }
-    : {},
-
-    var._metadata.sha != ""
-    ? { deployment-sha = var._metadata.repository != "" ? substr(var._metadata.sha, 0, 7) : "" }
-    : {}
+  _metadata = merge(
+    var._metadata,
+    var._metadata.deployment == "" ? { deployment = basename(abspath(path.module)) } : {},
+    var._metadata.short_name == "" ? { short_name = basename(abspath(path.module)) } : {}
   )
+}
+
+locals {
+  _name_tag = local._metadata.deployment
+}
+
+variable "_metadata" {
+  type = object({
+    actor       = string # Github actor (deployer) of the deployment
+    catalog_id  = string # SLT catalog id of this module
+    environment = string # environment of the deployment, defaults to <actor>
+    deployment  = string # slt-<catalod_id>-<repo>-<environment>
+    ref         = string # Git reference of the deployment
+    ref_name    = string # Git ref_name (branch) of the deployment
+    repo        = string # GitHub short repository name (without owner) of the deployment
+    repository  = string # GitHub full repository name (including owner) of the deployment
+    sha         = string # Git (full-length, 40 char) commit SHA of the deployment
+    short_name  = string # slt-<cat>-<environment>
+    time        = string # Timestamp of the deployment
+  })
+  default = {
+    actor       = ""
+    catalog_id  = ""
+    environment = ""
+    deployment  = ""
+    ref         = ""
+    ref_name    = ""
+    repo        = ""
+    repository  = ""
+    sha         = ""
+    short_name  = ""
+    time        = ""
+  }
+}
+
+output "_name_tag" {
+  value = local._name_tag
+}
+
+output "_metadata" {
+  value = var._metadata
 }
