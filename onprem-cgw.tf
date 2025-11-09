@@ -1,5 +1,5 @@
 module "cgw" {
-  source                 = "git::https://github.com/stormreply/terraform-build-controller.git"
+  source                 = "git::https://github.com/stormreply/ssm-managed-instance.git"
   region                 = local.sites["onprem"].region
   providers              = { aws = aws.cgw-instance }
   ami                    = data.aws_ami.latest_ubuntu_linux_ami.id
