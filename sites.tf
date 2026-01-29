@@ -3,12 +3,12 @@ locals {
     aws = {
       name   = "aws"
       region = "eu-central-1"
-      cidr   = "172.31.0.0/16"
+      cidr   = "172.32.0.0/16"
     }
     onprem = {
-      name   = "onprem"
-      region = "eu-west-1"
-      cidr   = "172.32.0.0/16"
+      name   = "on-premises"
+      region = "eu-central-1"
+      cidr   = "172.33.0.0/16"
     }
   }
 }
