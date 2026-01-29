@@ -14,7 +14,7 @@ resource "aws_security_group" "this" {
     from_port   = 0
     to_port     = 0
     protocol    = "-1"
-    cidr_blocks = ["172.31.0.0/16", "172.32.0.0/16"]
+    cidr_blocks = [var.site.cidr, var.peer.cidr]
   }
 
   egress {

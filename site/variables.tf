@@ -5,3 +5,7 @@ variable "name_tag" {
 variable "site" {
   type = any
 }
+
+variable "peer" {
+  type = any
+}
