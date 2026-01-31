@@ -18,6 +18,9 @@ vgw_outside_ip_2=$(echo "$tunnel_2" | $YQ '.vpn_gateway.tunnel_outside_address.i
 cgw_inside_ip_1=$(echo "$tunnel_1" | $YQ '.customer_gateway.tunnel_inside_address.ip_address')
 cgw_inside_ip_2=$(echo "$tunnel_2" | $YQ '.customer_gateway.tunnel_inside_address.ip_address')
 
+vpn_inside_ip_1=$(echo "$tunnel_1" | $YQ '.vpn_gateway.tunnel_inside_address.ip_address')
+vpn_inside_ip_2=$(echo "$tunnel_2" | $YQ '.vpn_gateway.tunnel_inside_address.ip_address')
+
 psk_1=$(echo "$tunnel_1" | $YQ '.ike.pre_shared_key')
 psk_2=$(echo "$tunnel_2" | $YQ '.ike.pre_shared_key')
 
@@ -95,14 +98,14 @@ conn Tunnel2
     ## in your Strongswan configuration file. This "mark" value must be
     ## unique and may need to be changed based on other entries in your
     ## configuration file.
-    mark=100
+    mark=200
 
     ## Uncomment the following line to utilize the script from the
     ##   "Automated Tunnel Healhcheck and Failover"
     ## section. Ensure that the integer after "-m" matches the "mark"
     ## value above, and <VPC CIDR> is replaced with the CIDR of your
     ## VPC (e.g. 192.168.1.0/24)
-    leftupdown="/etc/ipsec.d/aws-updown.sh -ln Tunnel1 -ll $cgw_inside_ip_2/30 -lr $vpn_inside_ip_2/30 -m 100 -r ${cidr_aws}"
+    leftupdown="/etc/ipsec.d/aws-updown.sh -ln Tunnel2 -ll $cgw_inside_ip_2/30 -lr $vpn_inside_ip_2/30 -m 200 -r ${cidr_aws}"
 
 EOF
 
