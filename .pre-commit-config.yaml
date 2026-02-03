@@ -1,4 +1,12 @@
 repos:
+- repo: local
+  hooks:
+    - id: prepare-working-directory
+      name: "prepare-working-directory"
+      entry: bash -c 'find . -type d -name ".terraform" -exec rm -rf {} + 2>/dev/null; find . -type f -name ".terraform.lock.hcl" -delete 2>/dev/null; cp -f README.md README.old; true'
+      language: system
+      pass_filenames: false
+      always_run: true
 - repo: https://github.com/pre-commit/pre-commit-hooks
   rev: v5.0.0
   hooks:
@@ -16,11 +24,19 @@ repos:
     # - id: terraform_trivy
     - id: terraform_validate
       args:
-        - --tf-init-args=-upgrade
         - --hook-config=--retry-once-with-cleanup=true
+        - --tf-init-args=-backend=false
     # - id: terraform_checkov
     #   args:
     #     - --args=--quiet
+- repo: local
+  hooks:
+    - id: escape-underscores
+      name: "escape underscores in markdown brackets"
+      entry: ./.support/escape-underscores.sh
+      language: system
+      pass_filenames: false
+      always_run: true
 - repo: https://github.com/gitleaks/gitleaks
   rev: a248f9279b38aeff5bbd4c85cc6f15b64d27e794  # frozen: v8.27.0
   hooks:

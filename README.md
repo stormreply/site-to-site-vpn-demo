@@ -1,4 +1,4 @@
-# site-to-site-vpn
+# Site-to-Site VPN
 
 A demo simulating a site-to-site VPN between on-prem and AWS, using a StrongSwan instance as Customer Gateway
 
@@ -12,6 +12,8 @@ library is learners and presenters alike - people that want to know
 or show how a certain service, pattern or solution looks like, or "feels".
 
 [Learn more](https://github.com/stormreply/storm-library-for-terraform)
+
+## Terraform Docs
 
 <details>
 <summary>Klicke zum Anzeigen</summary>
@@ -47,18 +49,18 @@ or show how a certain service, pattern or solution looks like, or "feels".
 
 | Name | Type |
 |------|------|
-| [aws_customer_gateway.onprem](https://registry.terraform.io/providers/hashicorp/aws/6.30.0/docs/resources/customer_gateway) | resource |
-| [aws_eip.onprem](https://registry.terraform.io/providers/hashicorp/aws/6.30.0/docs/resources/eip) | resource |
-| [aws_eip_association.onprem](https://registry.terraform.io/providers/hashicorp/aws/6.30.0/docs/resources/eip_association) | resource |
-| [aws_route.aws](https://registry.terraform.io/providers/hashicorp/aws/6.30.0/docs/resources/route) | resource |
-| [aws_route.onprem](https://registry.terraform.io/providers/hashicorp/aws/6.30.0/docs/resources/route) | resource |
-| [aws_vpn_connection.vpn](https://registry.terraform.io/providers/hashicorp/aws/6.30.0/docs/resources/vpn_connection) | resource |
-| [aws_vpn_connection_route.aws_to_onprem](https://registry.terraform.io/providers/hashicorp/aws/6.30.0/docs/resources/vpn_connection_route) | resource |
-| [aws_vpn_gateway.vgw](https://registry.terraform.io/providers/hashicorp/aws/6.30.0/docs/resources/vpn_gateway) | resource |
-| [local_file.vpn_config](https://registry.terraform.io/providers/hashicorp/local/2.6.2/docs/resources/file) | resource |
-| [aws_ami.latest_ubuntu_linux_ami](https://registry.terraform.io/providers/hashicorp/aws/6.30.0/docs/data-sources/ami) | data source |
-| [aws_iam_policy.amazon_ssm_managed_instance_core](https://registry.terraform.io/providers/hashicorp/aws/6.30.0/docs/data-sources/iam_policy) | data source |
-| [cloudinit_config.cgw](https://registry.terraform.io/providers/hashicorp/cloudinit/2.3.7/docs/data-sources/config) | data source |
+| [aws\_customer\_gateway.onprem](https://registry.terraform.io/providers/hashicorp/aws/6.30.0/docs/resources/customer_gateway) | resource |
+| [aws\_eip.onprem](https://registry.terraform.io/providers/hashicorp/aws/6.30.0/docs/resources/eip) | resource |
+| [aws\_eip\_association.onprem](https://registry.terraform.io/providers/hashicorp/aws/6.30.0/docs/resources/eip_association) | resource |
+| [aws\_route.aws](https://registry.terraform.io/providers/hashicorp/aws/6.30.0/docs/resources/route) | resource |
+| [aws\_route.onprem](https://registry.terraform.io/providers/hashicorp/aws/6.30.0/docs/resources/route) | resource |
+| [aws\_vpn\_connection.vpn](https://registry.terraform.io/providers/hashicorp/aws/6.30.0/docs/resources/vpn_connection) | resource |
+| [aws\_vpn\_connection\_route.aws\_to\_onprem](https://registry.terraform.io/providers/hashicorp/aws/6.30.0/docs/resources/vpn_connection_route) | resource |
+| [aws\_vpn\_gateway.vgw](https://registry.terraform.io/providers/hashicorp/aws/6.30.0/docs/resources/vpn_gateway) | resource |
+| [local\_file.vpn\_config](https://registry.terraform.io/providers/hashicorp/local/2.6.2/docs/resources/file) | resource |
+| [aws\_ami.latest\_ubuntu\_linux\_ami](https://registry.terraform.io/providers/hashicorp/aws/6.30.0/docs/data-sources/ami) | data source |
+| [aws\_iam\_policy.amazon\_ssm\_managed\_instance\_core](https://registry.terraform.io/providers/hashicorp/aws/6.30.0/docs/data-sources/iam_policy) | data source |
+| [cloudinit\_config.cgw](https://registry.terraform.io/providers/hashicorp/cloudinit/2.3.7/docs/data-sources/config) | data source |
 
 ## Inputs
 
@@ -78,6 +80,6 @@ or show how a certain service, pattern or solution looks like, or "feels".
 
 </details>
 
-#### Credits
+## Credits
 
 - https://medium.com/@tanmaybhandge/aws-site-to-site-vpn-connection-using-strongswan-fb2f2f1b1f44
