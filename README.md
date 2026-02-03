@@ -12,3 +12,15 @@ library is learners and presenters alike - people that want to know
 or show how a certain service, pattern or solution looks like, or "feels".
 
 [Learn more](https://github.com/stormreply/storm-library-for-terraform)
+
+<details>
+<summary>Klicke zum Anzeigen</summary>
+
+<!-- BEGIN_TF_DOCS -->
+<!-- END_TF_DOCS -->
+
+</details>
+
+#### Credits
+
+- https://medium.com/@tanmaybhandge/aws-site-to-site-vpn-connection-using-strongswan-fb2f2f1b1f44

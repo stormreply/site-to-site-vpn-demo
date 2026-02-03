@@ -9,10 +9,19 @@ repos:
   hooks:
     - id: terraform_fmt
     - id: terraform_docs
+      args:
+        - --args=--output-file=README.md
+        - --args=--output-mode=inject
+        # - --args=--config=.terraform-docs.yml
+    # - id: infracost_breakdown
+    #   args:
+    #     - --args=--path=.
 #    - id: terraform_tflint
 #    - id: terraform_trivy
-#    - id: terraform_validate
-#    - id: terrascan
+    - id: terraform_validate
+      args:
+        - --tf-init-args=-upgrade
+        - --hook-config=--retry-once-with-cleanup=true
 #    - id: terraform_checkov
 #      args:
 #        - --args=--quiet
