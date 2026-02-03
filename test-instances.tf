@@ -1,4 +1,5 @@
 module "instance-aws" {
+  # tflint-ignore: terraform_module_pinned_source
   source                 = "git::https://github.com/stormreply/ssm-managed-instance.git"
   providers              = { aws = aws.aws-instance }
   region                 = local.sites.aws.region
@@ -11,6 +12,7 @@ module "instance-aws" {
 }
 
 module "instance-onprem" {
+  # tflint-ignore: terraform_module_pinned_source
   source                 = "git::https://github.com/stormreply/ssm-managed-instance.git"
   providers              = { aws = aws.onprem-instance }
   region                 = local.sites.onprem.region

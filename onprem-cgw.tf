@@ -1,4 +1,5 @@
 module "cgw" {
+  # tflint-ignore: terraform_module_pinned_source
   source                 = "git::https://github.com/stormreply/ssm-managed-instance.git"
   region                 = local.sites["onprem"].region
   providers              = { aws = aws.cgw-instance }

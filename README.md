@@ -22,9 +22,9 @@ or show how a certain service, pattern or solution looks like, or "feels".
 | Name | Version |
 |------|---------|
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1 |
-| <a name="requirement_aws"></a> [aws](#requirement\_aws) | = 6.30.0 |
-| <a name="requirement_cloudinit"></a> [cloudinit](#requirement\_cloudinit) | = 2.3.7 |
-| <a name="requirement_local"></a> [local](#requirement\_local) | = 2.6.2 |
+| <a name="requirement_aws"></a> [aws](#requirement\_aws) | 6.30.0 |
+| <a name="requirement_cloudinit"></a> [cloudinit](#requirement\_cloudinit) | 2.3.7 |
+| <a name="requirement_local"></a> [local](#requirement\_local) | 2.6.2 |
 
 ## Providers
 

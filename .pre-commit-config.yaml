@@ -12,11 +12,7 @@ repos:
       args:
         - --args=--output-file=README.md
         - --args=--output-mode=inject
-        # - --args=--config=.terraform-docs.yml
-    # - id: infracost_breakdown
-    #   args:
-    #     - --args=--path=.
-#    - id: terraform_tflint
+    - id: terraform_tflint
 #    - id: terraform_trivy
     - id: terraform_validate
       args:
