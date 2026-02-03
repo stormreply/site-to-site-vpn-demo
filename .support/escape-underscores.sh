@@ -8,8 +8,6 @@ awk '
         $0 = prefix suffix
     }
     {print}
-' README.md > README.new
+' README.new > README.md
 
-diff README.old README.new
-[ $? -ne 0 ] && mv README.new README.md
-exit 0
+rm README.new

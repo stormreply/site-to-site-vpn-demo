@@ -1,9 +1,9 @@
 repos:
 - repo: local
   hooks:
-    - id: prepare-working-directory
-      name: "prepare-working-directory"
-      entry: bash -c 'find . -type d -name ".terraform" -exec rm -rf {} + 2>/dev/null; find . -type f -name ".terraform.lock.hcl" -delete 2>/dev/null; cp -f README.md README.old; true'
+    - id: remove-terraform-cache
+      name: "remove terraform cache"
+      entry: ./.support/remove-terraform-cache.sh
       language: system
       pass_filenames: false
       always_run: true
@@ -18,7 +18,7 @@ repos:
     - id: terraform_fmt
     - id: terraform_docs
       args:
-        - --args=--output-file=README.md
+        - --args=--output-file=README.new
         - --args=--output-mode=inject
     - id: terraform_tflint
     # - id: terraform_trivy
