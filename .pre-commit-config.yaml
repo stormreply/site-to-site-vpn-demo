@@ -13,7 +13,7 @@ repos:
         - --args=--output-file=README.md
         - --args=--output-mode=inject
     - id: terraform_tflint
-#    - id: terraform_trivy
+    - id: terraform_trivy
     - id: terraform_validate
       args:
         - --tf-init-args=-upgrade
