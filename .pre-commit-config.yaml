@@ -1,9 +1,9 @@
 repos:
 - repo: local
   hooks:
-    - id: remove-terraform-cache
-      name: "remove terraform cache"
-      entry: ./.support/remove-terraform-cache.sh
+    - id: pre-process
+      name: "pre-process pre-commit"
+      entry: ./.support/pre-process.sh
       language: system
       pass_filenames: false
       always_run: true
@@ -32,8 +32,8 @@ repos:
 - repo: local
   hooks:
     - id: escape-underscores
-      name: "escape underscores in markdown brackets"
-      entry: ./.support/escape-underscores.sh
+      name: "post-process pre-commit"
+      entry: ./.support/post-process.sh
       language: system
       pass_filenames: false
       always_run: true
