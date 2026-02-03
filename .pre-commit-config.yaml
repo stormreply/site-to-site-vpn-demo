@@ -3,7 +3,7 @@ repos:
   hooks:
     - id: pre-process
       name: "pre-process pre-commit"
-      entry: ./.support/pre-process.sh
+      entry: bash ./.support/pre-process.sh
       language: system
       pass_filenames: false
       always_run: true
@@ -31,9 +31,9 @@ repos:
     #     - --args=--quiet
 - repo: local
   hooks:
-    - id: escape-underscores
+    - id: post-process
       name: "post-process pre-commit"
-      entry: ./.support/post-process.sh
+      entry: bash ./.support/post-process.sh
       language: system
       pass_filenames: false
       always_run: true
