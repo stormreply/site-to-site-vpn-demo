@@ -13,10 +13,27 @@ or show how a certain service, pattern or solution looks like, or "feels".
 
 [Learn more](https://github.com/stormreply/storm-library-for-terraform)
 
+## Installation
+
+This demo can be built using GitHub Actions. In order to do so
+
+- [Install the Storm Library for Terraform](https://github.com/stormreply/storm-library-for-terraform/blob/main/docs/INSTALL-LIBRARY.md)
+- [Deploy this member repository](https://github.com/stormreply/storm-library-for-terraform/blob/main/docs/DEPLOY-MEMBER.md)
+
+Deployment of this member should take < 2 minutes on GitHub resources.
+
+## Architecture
+
+[Image]
+
+## Explore this demo
+
+1.
+
 ## Terraform Docs
 
 <details>
-<summary>Klicke zum Anzeigen</summary>
+<summary>Click to show</summary>
 
 <!-- BEGIN_TF_DOCS -->
 ## Requirements

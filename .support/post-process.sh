@@ -12,4 +12,4 @@ awk '
     {print}
 ' README.new > README.md
 
-# rm README.new
+rm README.new
