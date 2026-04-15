@@ -10,7 +10,7 @@ provider "aws" {
     tags = merge(
       local._default_tags,
       {
-        deployment-name = "${local._name_tag}-cgw"
+        deployment-name = "${local._deployment}-cgw"
       }
     )
   }
@@ -22,7 +22,7 @@ provider "aws" {
     tags = merge(
       local._default_tags,
       {
-        deployment-name = "${local._name_tag}-aws"
+        deployment-name = "${local._deployment}-aws"
       }
     )
   }
@@ -34,7 +34,7 @@ provider "aws" {
     tags = merge(
       local._default_tags,
       {
-        deployment-name = "${local._name_tag}-onprem"
+        deployment-name = "${local._deployment}-onprem"
       }
     )
   }

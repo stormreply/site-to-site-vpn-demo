@@ -18,7 +18,7 @@ locals {
 module "site" {
   for_each = local.sites
   source   = "./site"
-  name_tag = local._name_tag
+  name_tag = local._deployment
   site     = local.sites[each.key]
   peer     = local.sites[local.sites[each.key].peer]
 }

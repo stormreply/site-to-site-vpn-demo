@@ -3,7 +3,7 @@ module "instance-aws" {
   source                 = "git::https://github.com/stormreply/ssm-managed-instance.git"
   providers              = { aws = aws.aws-instance }
   region                 = local.sites.aws.region
-  name                   = "${local._name_tag}-aws"
+  name                   = "${local._deployment}-aws"
   instance_type          = "t3.small"
   policies               = [data.aws_iam_policy.amazon_ssm_managed_instance_core.arn]
   subnet_id              = module.site.aws.subnet.id
@@ -16,7 +16,7 @@ module "instance-onprem" {
   source                 = "git::https://github.com/stormreply/ssm-managed-instance.git"
   providers              = { aws = aws.onprem-instance }
   region                 = local.sites.onprem.region
-  name                   = "${local._name_tag}-on-premises"
+  name                   = "${local._deployment}-on-premises"
   instance_type          = "t3.small"
   policies               = [data.aws_iam_policy.amazon_ssm_managed_instance_core.arn]
   subnet_id              = module.site.onprem.subnet.id
