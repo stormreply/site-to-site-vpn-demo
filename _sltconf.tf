@@ -65,6 +65,7 @@ locals {
   )
 
   _deployment = local._metadata.deployment
+  _name_tag   = local._metadata.deployment
 
   _slt_offset             = tonumber(coalesce(try(local._metadata.catalog_id, "0"), "0"))
   _slt_172_31_subnet_cidr = "172.31.${128 + local._slt_offset}.0/24"
@@ -78,7 +79,7 @@ locals {
     default_tags         = local._default_tags
     deployment           = local._deployment
     metadata             = local._metadata
-    name_tag             = local._deployment
+    name_tag             = local._name_tag
     assigned_subnet_cidr = local._slt_172_31_subnet_cidr
     assigned_vpc_cidr    = local._slt_172_16_vpc_cidr
   }
