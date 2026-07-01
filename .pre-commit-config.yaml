@@ -1,19 +1,19 @@
 repos:
 - repo: local
   hooks:
-    - id: pre-process
-      name: "pre-process pre-commit"
-      entry: bash ./.support/pre-process.sh
+    - id: prepare-pre-commit
+      name: "prepare pre-commit"
+      entry: bash ./.support/prepare-pre-commit.sh
       language: system
       pass_filenames: false
       always_run: true
 - repo: https://github.com/pre-commit/pre-commit-hooks
-  rev: v5.0.0
+  rev: v6.0.0
   hooks:
     - id: end-of-file-fixer
     - id: trailing-whitespace
 - repo: https://github.com/antonbabenko/pre-commit-terraform
-  rev: v1.99.4 # Get the latest from: https://github.com/antonbabenko/pre-commit-terraform/releases
+  rev: v1.108.0
   hooks:
     - id: terraform_fmt
     - id: terraform_docs
@@ -26,18 +26,18 @@ repos:
       args:
         - --hook-config=--retry-once-with-cleanup=true
         - --tf-init-args=-backend=false
-    # - id: terraform_checkov
-    #   args:
-    #     - --args=--quiet
+    - id: terraform_checkov
+      args:
+        - --args=--quiet
+- repo: https://github.com/gitleaks/gitleaks
+  rev: v8.30.0
+  hooks:
+  - id: gitleaks
 - repo: local
   hooks:
-    - id: post-process
-      name: "post-process pre-commit"
-      entry: bash ./.support/post-process.sh
+    - id: finish-pre-commit
+      name: "finish pre-commit"
+      entry: bash ./.support/finish-pre-commit.sh
       language: system
       pass_filenames: false
       always_run: true
-- repo: https://github.com/gitleaks/gitleaks
-  rev: a248f9279b38aeff5bbd4c85cc6f15b64d27e794  # frozen: v8.27.0
-  hooks:
-  - id: gitleaks

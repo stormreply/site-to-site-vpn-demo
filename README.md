@@ -1,8 +1,13 @@
+### Storm Library for Terraform
 # Site-to-Site VPN
 
 A demo simulating a site-to-site VPN between on-prem and AWS, using a StrongSwan instance as Customer Gateway
 
-#### Storm Library for Terraform
+[![Check](https://github.com/stormreply/site-to-site-vpn-demo/actions/workflows/check.yaml/badge.svg)](https://github.com/stormreply/site-to-site-vpn-demo/actions/workflows/check.yaml)
+[![Plan](https://github.com/stormreply/site-to-site-vpn-demo/actions/workflows/plan.yaml/badge.svg)](https://github.com/stormreply/site-to-site-vpn-demo/actions/workflows/plan.yaml)
+[![Apply](https://github.com/stormreply/site-to-site-vpn-demo/actions/workflows/apply.yaml/badge.svg)](https://github.com/stormreply/site-to-site-vpn-demo/actions/workflows/apply.yaml)
+[![Test](https://github.com/stormreply/site-to-site-vpn-demo/actions/workflows/test.yaml/badge.svg)](https://github.com/stormreply/site-to-site-vpn-demo/actions/workflows/test.yaml)
+[![Destroy](https://github.com/stormreply/site-to-site-vpn-demo/actions/workflows/destroy.yaml/badge.svg)](https://github.com/stormreply/site-to-site-vpn-demo/actions/workflows/destroy.yaml)
 
 This repository is a member of the SLT | Storm Library for Terraform,
 a collection of Terraform modules for Amazon Web Services. The focus
@@ -37,10 +42,8 @@ aws ec2 modify-vpn-tunnel-options \
   --tunnel-outside-ip-address 1.2.3.4 \
   --tunnel-options '{"TunnelLifecycleControl":"down"}'
 
-## Terraform Docs
-
 <details>
-<summary>Click to show</summary>
+<summary><h2>Terraform Docs</h2></summary>
 
 <!-- BEGIN_TF_DOCS -->
 ## Requirements

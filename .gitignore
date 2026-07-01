@@ -1,15 +1,15 @@
 # local .terraform directories
 **/.terraform
 
-# terraform plan files
-.tfplan
-
 # terraform lockfile
 .terraform.lock.hcl
 
 # .tfstate files
 *.tfstate
 *.tfstate.*
+
+# .tfplan files
+.tfplan
 
 # IDEA configurations
 .idea
@@ -19,3 +19,13 @@
 
 # vi(m) swap files
 **/*.sw?
+
+# Python virtual environment
+.venv
+.python-version
+main.py
+pyproject.toml
+uv.lock
+
+# TODOs
+*TODO*
